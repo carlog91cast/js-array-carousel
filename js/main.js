@@ -14,8 +14,11 @@ for (let index = 0; index < imgList.length; index++) {
     let image = document.createElement('img');
     image.setAttribute('src', imgList[index]);
     if (index == 0) {
-        
-    } else{}
+        image.classList.add("active");
+        image.innerHTML = index;  
+    } else{
+        image.classList.remove("active");
+    }
     carousel.append(image);
     
     
