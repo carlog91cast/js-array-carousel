@@ -8,3 +8,15 @@ const imgList = [
     'https://iso.500px.com/wp-content/uploads/2021/02/Torres-Del-Paine-Sunset-By-Paul-Reiffer-2-1500x1000.jpg',
     'https://mymodernmet.com/wp/wp-content/uploads/2020/02/Landscape-Photographer-of-the-Year-Sander-Grefte.jpg'
 ];
+const carousel = document.querySelector('.carousel-image');
+
+for (let index = 0; index < imgList.length; index++) {
+    let image = document.createElement('img');
+    image.setAttribute('src', imgList[index]);
+    if (index == 0) {
+        
+    } else{}
+    carousel.append(image);
+    
+    
+}
