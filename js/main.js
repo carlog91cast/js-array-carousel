@@ -46,7 +46,7 @@ btnPre.addEventListener('click', function () {
     activeImageIndex++;
 
 
-    if (activeImageIndex === imgList.length - 1) {
+    if (activeImageIndex === imgList.length) {
         activeImageIndex = 0;
     };
     const nextimage = document.getElementById(activeImageIndex);
