@@ -1,3 +1,8 @@
+
+
+// creo un bottone cui agganciare la funzione di scorrimento immagini del carosello
+
+
 // inserisco l'array fornito e creo un add event listener sui buttons nell'html per aggancirvi la funzione
 
 const imgList = [
@@ -8,18 +13,45 @@ const imgList = [
     'https://iso.500px.com/wp-content/uploads/2021/02/Torres-Del-Paine-Sunset-By-Paul-Reiffer-2-1500x1000.jpg',
     'https://mymodernmet.com/wp/wp-content/uploads/2020/02/Landscape-Photographer-of-the-Year-Sander-Grefte.jpg'
 ];
+let activeImageIndex = 0;
 const carousel = document.querySelector('.carousel-image');
+
+// creo un if per cui se l'immagine è uguale alla prima nell'array allora aggiungo la classe con display block cosi da farla vedere
 
 for (let index = 0; index < imgList.length; index++) {
     let image = document.createElement('img');
     image.setAttribute('src', imgList[index]);
-    if (index == 0) {
+    image.setAttribute("id", index);
+    if (index == activeImageIndex) {
         image.classList.add("active");
-        image.innerHTML = index;  
-    } else{
+        image.innerHTML = index;
+        // in tutti gli altri casi sarà display none
+    } else if (index > 0) {
         image.classList.remove("active");
-    }
+    };
+
     carousel.append(image);
-    
-    
+
+
 }
+
+
+const btnPre = document.getElementById('btn-next');
+btnPre.addEventListener('click', function () {
+    const activeImage = document.querySelector('img.active');
+    activeImage.classList.remove('active');
+    console.log(carousel);
+    console.log(activeImage);
+
+    activeImageIndex++;
+
+
+    if (activeImageIndex === imgList.length - 1) {
+        activeImageIndex = 0;
+    };
+    const nextimage = document.getElementById(activeImageIndex);
+    console.log(nextimage);
+    nextimage.classList.add('active');
+    // activeImage[activeImageIndex].classList.add('active');
+    // console.log(activeImage);
+});
